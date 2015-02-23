@@ -1,0 +1,170 @@
+<div data-role="page" id="post-job">
+
+  <section class="above-fold">
+    <h2>Join Driver Hunt</h2>
+  </section>  
+
+  <div data-role="content">
+      
+    <div data-role="fieldcontain">
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" ng-model="driver.first_name">
+    </div>
+
+    <fieldset data-role="fieldcontain">
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" ng-model="driver.last_name">
+    </fieldset>
+
+    <fieldset data-role="fieldcontain">
+      <label for="email">Email:</label>
+      <input type="text" id="email" ng-model="driver.email">
+    </fieldset>
+
+    <fieldset data-role="fieldcontain">
+      <label for="mobile_number">Mobile Number:</label>
+      <input type="text" id="mobile_number" ng-model="driver.mobile_number">
+    </fieldset>
+
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+        <legend>I am looking for:</legend>
+
+        <label ng-repeat="category in categories">
+          <input type="checkbox" checklist-model="driver.categories" checklist-value="category"> {{category}} Jobs
+        </label>
+
+        <!-- <input type="checkbox" ng-model="driver.category" name="category" id="motorbike" value="motorbike" />
+        <label for="motorbike">Motorbike Jobs</label>
+        <input type="checkbox" ng-model="driver.category" name="category" id="van" value="van" />
+        <label for="van">Van Jobs</label>
+        <input type="checkbox" ng-model="driver.category" name="category" id="lorry" value="lorry" />
+        <label for="lorry">Lorry Jobs</label>
+        <input type="checkbox" ng-model="driver.category" name="category" id="taxi" value="taxi" />
+        <label for="taxi">Taxi Jobs</label>
+        <input type="checkbox" ng-model="driver.category" name="category" id="car" value="car" />
+        <label for="car">Car Jobs</label>
+        <input type="checkbox" ng-model="driver.category" name="category" id="bus" value="bus" />
+        <label for="bus">Bus Jobs</label>
+        <input type="checkbox" ng-model="driver.category" name="category" id="bicycle" value="bicycle" />
+        <label for="bicycle">Cyclist Jobs</label> -->
+      </fieldset>
+    </div>
+
+    <fieldset data-role="fieldcontain">
+      <label>Near this postcode or address:</label>
+      <input type="text" ng-model="driver.postcode" name="postcode" placeholder="Enter postcode" value="<%= params[:postcode] %>">
+    </fieldset>
+
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+        <legend>Who provides the vehicle?:</legend>
+
+        <input type="radio" ng-model="driver.owns_vehicle" name="own_vehicle" id="driver" value="Driver" checked="checked" />
+        <label for="driver">I can provide the vehicle for this job</label>
+
+        <input type="radio" ng-model="driver.owns_vehicle" name="own_vehicle" id="employer" value="Employer"  />
+        <label for="employer">My boss needs to provide the vehicle</label>
+
+      </fieldset>
+    </div>
+
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+        <legend>I want to work on:</legend>
+        <label ng-repeat="day in days">
+          <input type="checkbox" checklist-model="driver.days" checklist-value="day"> {{day}}
+        </label>
+        <!-- 
+        <input type="checkbox" ng-model="driver.days" name="days" id="monday" ng-true-value="'monday'" checked="checked" />
+        <label for="monday">Monday</label>
+        <input type="checkbox" ng-model="driver.days" name="days" id="tuesday" ng-true-value="'tuesday'" checked="checked" />
+        <label for="tuesday">Tuesday</label>
+        <input type="checkbox" ng-model="driver.days" name="days" id="wednesday" ng-true-value="'wednesday'" checked="checked" />
+        <label for="wednesday">Wednesday</label>
+        <input type="checkbox" ng-model="driver.days" name="days" id="thursday" ng-true-value="'thursday'" checked="checked" />
+        <label for="thursday">Thursday</label>
+        <input type="checkbox" ng-model="driver.days" name="days" id="friday" ng-true-value="'friday'" checked="checked" />
+        <label for="friday">Friday</label>
+        <input type="checkbox" ng-model="driver.days" name="days" id="saturday" ng-true-value="'saturday'" checked="checked" />
+        <label for="saturday">Saturday</label>
+        <input type="checkbox" ng-model="driver.days" name="days" id="sunday" ng-true-value="'sunday'" checked="checked" />
+        <label for="sunday">Sunday</label> -->
+      </fieldset>
+    </div>
+    
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+        <legend>I want to work these shifts:</legend>
+        <label ng-repeat="shift in shifts">
+          <input type="checkbox" checklist-model="driver.shifts" checklist-value="shift"> {{shift}}
+        </label>
+
+        <!-- <input type="checkbox" ng-model="test" name="shifts" id="morning" value="morning" checked="checked" />
+        <label for="morning">Morning</label>
+        <input type="checkbox" ng-model="test" name="shifts" id="afternoon" value="afternoon" checked="checked" />
+        <label for="afternoon">Afternoon</label>
+        <input type="checkbox" ng-model="test" name="shifts" id="evening" value="evening" checked="checked" />
+        <label for="evening">Evening</label>
+        <input type="checkbox" ng-model="test" name="shifts" id="night" value="night" checked="checked"/>
+        <label for="night">Night</label> -->
+      </fieldset>
+    </div>
+    
+    <fieldset data-role="fieldcontain">
+      <label for="textarea">Notes:</label>
+      <textarea cols="40" rows="8" name="textarea" ng-model="driver.notes" id="textarea" ng-model="driver.notes"></textarea>
+    </fieldset>
+
+    <button ng-click="form.addUser(driver)">
+      Sign Up
+    </button>
+    <p>By posting a job you confirm that you accept the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <h2>Signups:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Mobile Number</th>
+          <th>Category</th>
+          <th>Postcode</th>
+          <th>Who's Vehicle?</th>
+          <th>Days Available</th>
+          <th>Shifts Available</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="driver in form.drivers">
+          <td>{{ $index }}</td>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.email }}</td>
+          <td>{{ driver.mobile_number }}</td>
+          <td>{{ driver.categories }}</td>
+          <td>{{ driver.postcode }}</td>
+          <td>{{ driver.owns_vehicle }}</td>
+          <td>{{ driver.days }}</td>
+          <td>{{ driver.shifts }}</td>
+          <td>{{ driver.notes }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+</div> <!-- page -->

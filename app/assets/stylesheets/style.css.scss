@@ -1,0 +1,19 @@
+$blue: #009DE1;
+
+.above-fold{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  background-color: $blue;
+  img{
+    display: inline-block;
+  }
+  h2{
+    text-shadow: none;
+    color: white;
+    font-weight: lighter;
+  }
+  .main-logo{
+    max-width: 100%;
+  }
+}

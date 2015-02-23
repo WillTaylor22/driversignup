@@ -47,4 +47,5 @@ end
 gem 'pg'
 gem 'rails_12factor', group: :production
 
-gem 'angularjs-rails'
+# gem 'angularjs-rails'
+# gem 'jquery_mobile_rails'
