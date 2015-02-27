@@ -13,6 +13,7 @@
     this.addUser = function(driver){
       var newdriver = angular.copy(driver)
       this.drivers.push(newdriver);
+      $scope.driver.company = ""
       $scope.driver.first_name = ""
       $scope.driver.last_name = ""
       $scope.driver.email = ""

@@ -5,14 +5,19 @@
   </section>  
 
   <div data-role="content">
-      
+    
     <div data-role="fieldcontain">
-      <label for="first_name">First Name:</label>
+      <label for="company">Company:</label>
+      <input type="text" id="company" ng-model="driver.company">
+    </div>
+
+    <div data-role="fieldcontain">
+      <label for="first_name">Employer First Name:</label>
       <input type="text" id="first_name" ng-model="driver.first_name">
     </div>
 
     <fieldset data-role="fieldcontain">
-      <label for="last_name">Last Name:</label>
+      <label for="last_name">Employer Last Name:</label>
       <input type="text" id="last_name" ng-model="driver.last_name">
     </fieldset>
 
@@ -52,7 +57,7 @@
     </div>
 
     <fieldset data-role="fieldcontain">
-      <label>Near this postcode or address:</label>
+      <label>Near this address and postcode:</label>
       <input type="text" ng-model="driver.postcode" name="postcode" placeholder="Enter postcode" value="<%= params[:postcode] %>">
     </fieldset>
 
@@ -61,17 +66,17 @@
         <legend>Who provides the vehicle?:</legend>
 
         <input type="radio" ng-model="driver.owns_vehicle" name="own_vehicle" id="driver" value="Driver" checked="checked" />
-        <label for="driver">I can provide the vehicle for this job</label>
+        <label for="driver"> The driver provides the vehicle for this job</label>
 
         <input type="radio" ng-model="driver.owns_vehicle" name="own_vehicle" id="employer" value="Employer"  />
-        <label for="employer">My boss needs to provide the vehicle</label>
+        <label for="employer">I can provide need to provide the vehicle</label>
 
       </fieldset>
     </div>
 
     <div data-role="fieldcontain">
       <fieldset data-role="controlgroup">
-        <legend>I want to work on:</legend>
+        <legend>I want them to work on:</legend>
         <label ng-repeat="day in days">
           <input type="checkbox" checklist-model="driver.days" checklist-value="day"> {{day}}
         </label>
@@ -95,7 +100,7 @@
     
     <div data-role="fieldcontain">
       <fieldset data-role="controlgroup">
-        <legend>I want to work these shifts:</legend>
+        <legend>I want them to work these shifts:</legend>
         <label ng-repeat="shift in shifts">
           <input type="checkbox" checklist-model="driver.shifts" checklist-value="shift"> {{shift}}
         </label>
@@ -120,19 +125,20 @@
       Sign Up
     </button>
     <p>By posting a job you confirm that you accept the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <h2>Signups:</h2>
 
     <div ng-repeat="driver in form.drivers">
+      <p><strong>Company: </strong>{{ driver.company }}</p>
       <p><strong>Driver: </strong>{{ driver.first_name }} {{ driver.last_name }}</p>
       <p><strong>Details: </strong>{{ driver.email }}, {{ driver.mobile_number }}</p>
       <p><strong>Location: </strong>{{ driver.postcode }}</p>
